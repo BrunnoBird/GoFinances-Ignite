@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components/native';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { Feather } from '@expo/vector-icons';
 
+//? Tipando minha style dos icons, e pegando o parametro type do Index.
 interface TypeProps{
     type: 'up' | 'down' | 'total';
 }
