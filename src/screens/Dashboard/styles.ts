@@ -1,4 +1,3 @@
-//TODO anotar notion como passar icones no Styled e sobre o Theme Provider + theme.d.ts
 import styled from 'styled-components/native';
 import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 import { Feather } from '@expo/vector-icons';
@@ -68,7 +67,6 @@ export const Icon = styled(Feather)`
     font-size: ${RFValue(24)}px;
 `;
 
-//TODO anotar no notion Setando Props dentro do StyledComponents para limpar o Index.
 export const HighlightCards = styled.ScrollView.attrs({
     horizontal: true,
     showsHorizontalScrollIndicator: false,
