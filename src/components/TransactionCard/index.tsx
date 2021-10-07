@@ -15,39 +15,39 @@ interface Category {
   icon: string;
 }
 
-interface Props {
+export interface TransactionCardProps {
+  type: 'positive' | 'negative';
   title: string;
   amount: string;
   category: Category;
   date: string;
 }
+interface Props {
+  data: TransactionCardProps;
+}
 
-export function TransactionCard({
-  title,
-  amount,
-  category,
-  date
-} : Props) {
+export function TransactionCard({ data } : Props) {
   return (
     <Container>
       <Title>
-        {title}
+        {data.title}
       </Title>
 
-      <Amount>
-        {amount}
+      <Amount type={data.type}>
+        { data.type === 'negative' && '- ' }
+        { data.amount }
       </Amount>
 
       <Footer>
         <Category>
-          <Icon name="dollar-sign"/>
+          <Icon name={data.category.icon}/>
           <CategoryName>
-            {category.name}
+            {data.category.name}
           </CategoryName>
         </Category>
         
         <Date>
-          {date}
+          {data.date}
         </Date>
       </Footer>
     </Container>

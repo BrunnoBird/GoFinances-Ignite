@@ -1,7 +1,10 @@
 import React from 'react';
 
 import { HighlightCard } from '../../components/HighlightCard';
-import { TransactionCard } from '../../components/TransactionCard';
+import { 
+    TransactionCard,
+    TransactionCardProps,
+} from '../../components/TransactionCard';
 
 import { 
     Container,
@@ -16,9 +19,50 @@ import {
     HighlightCards,
     Transactions, 
     Title,
+    TransactionList,
 } from './styles';
 
+export interface DataListProps extends TransactionCardProps {
+    id: string;
+}
+
 export function Dashboard(){
+    const data: DataListProps[] = [
+        {
+        id: '1',
+        type: 'positive',
+        title: "Desenvolvimento de App",
+        amount: "R$ 20.000,00",
+        category: {
+            name: 'Vendas',
+            icon: 'dollar-sign'
+        },
+        date: "13/04/2021",
+    },
+    {
+        id: '2',
+        type: 'negative',
+        title: "Mercado",
+        amount: "R$ 2.000,00",
+        category: {
+            name: 'Alimentacao',
+            icon: 'coffee'
+        },
+        date: "10/04/2021",
+    },
+    {
+        id: '3',
+        type: 'negative',
+        title: "Aluguel Apartamento",
+        amount: "R$ 3.000,00",
+        category: {
+            name: 'Casa',
+            icon: 'shopping-bag'
+        },
+        date: "10/04/2021",
+    },
+];
+
     return(
         <Container>
             <Header>
@@ -59,15 +103,11 @@ export function Dashboard(){
             <Transactions>
                 <Title>Listagem</Title>
                 
-                <TransactionCard 
-                    title="Desenvolvimento de Site"
-                    amount="R$ 12.000,00"
-                    category={{
-                        name: 'Vendas',
-                        icon: 'dollar-sign'
-                    }}
-                    date="13/04/2021"
-                />    
+                <TransactionList 
+                    data={data}
+                    keyExtractor={item => item.id}
+                    renderItem={({ item }) => <TransactionCard data={item} />}
+                />
             </Transactions>
         </Container>
     )
