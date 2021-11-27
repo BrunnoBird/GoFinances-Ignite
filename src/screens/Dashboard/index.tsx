@@ -28,8 +28,6 @@ import {
     LogoutButton,
     LoadContainer,
 } from "./styles";
-import { StringLiteralTypeAnnotation } from "@babel/types";
-
 export interface DataListProps extends TransactionCardProps {
     id: string;
 }
@@ -149,14 +147,14 @@ export function Dashboard() {
 
     return (
         <Container>
-            {isLoading ? (
+            {isLoading ? 
                 <LoadContainer>
                     <ActivityIndicator
                         color={theme.colors.primary}
                         size="large"
                     />
                 </LoadContainer>
-            ) : (
+             :
                 <>
                     <Header>
                         <UserWrapper>
@@ -205,7 +203,7 @@ export function Dashboard() {
                         />
                     </Transactions>
                 </>
-            )}
+            }
         </Container>
     );
 }
