@@ -6,6 +6,8 @@ import GoogleSvg from '../../assets/google.svg';
 import LogoSvg from '../../assets/logo.svg';
 import { SigninSocialButton } from '../../components/SigninSocialButton';
 
+import { useAuth } from '../../hooks/auth';
+
 import {
   Container,
   Header,
@@ -17,6 +19,9 @@ import {
 } from './styles';
 
 export function Signin() {
+  const { user } = useAuth();
+  console.log(user);
+  
   return (
     <Container>
       <Header>

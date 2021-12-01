@@ -6,6 +6,7 @@ import 'intl/locale-data/jsonp/pt-BR';
 
 import AppLoading from 'expo-app-loading';
 import { ThemeProvider } from 'styled-components';
+import { AuthProvider } from './src/hooks/auth';
 
 import {
   useFonts,
@@ -35,7 +36,11 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <NavigationContainer>
         <StatusBar barStyle="light-content" />
-        <Signin />
+
+        <AuthProvider>
+          <Signin />
+        </AuthProvider>
+        
       </NavigationContainer>
     </ThemeProvider>
   ) 
