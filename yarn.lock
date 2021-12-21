@@ -2302,6 +2302,15 @@
   dependencies:
     nanoid "^3.1.23"
 
+"@react-navigation/stack@^6.0.11":
+  version "6.0.11"
+  resolved "https://registry.yarnpkg.com/@react-navigation/stack/-/stack-6.0.11.tgz#9a94089da7a6bb6b41084c2b9e88ef542d41345d"
+  integrity sha512-Osc2mXi0Zh/u92HRCceDqVfVnypTa2sZgYMJDU+vDhHz38negtbCG+cjje6nApSjwC5WTVhYP4OoD5WBSh51+g==
+  dependencies:
+    "@react-navigation/elements" "^1.2.1"
+    color "^3.1.3"
+    warn-once "^0.1.0"
+
 "@sinonjs/commons@^1.7.0":
   version "1.8.3"
   resolved "https://registry.yarnpkg.com/@sinonjs/commons/-/commons-1.8.3.tgz#3802ddd21a50a949b6721ddd72da36e67e7f1b2d"
@@ -4411,6 +4420,13 @@ expo-app-loading@^1.0.3:
   integrity sha512-zLheUgBCQoyybJrGxw81MWfxvlnHb7zatjLbmkNosqMwqq3MOPC/P4HwF6qYsrVUFO6PIzb4yq3lFO3RkCCfhw==
   dependencies:
     expo-splash-screen "~0.10.2"
+
+expo-apple-authentication@~3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/expo-apple-authentication/-/expo-apple-authentication-3.1.0.tgz#3ba01a474c3ac22f53f47832ee53c4ea7befc135"
+  integrity sha512-4dUn7P1iCtFzm8dvg7+BwD/YiHb7NbLbivcYc9zUazixw5cR5sf62AD4lvkdKhO/CHa0edLb8bsTAE+wbDpSpw==
+  dependencies:
+    "@expo/config-plugins" "^1.0.18"
 
 expo-application@~3.1.2:
   version "3.1.2"
