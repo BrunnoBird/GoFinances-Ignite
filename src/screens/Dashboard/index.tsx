@@ -6,10 +6,7 @@ import { useFocusEffect } from "@react-navigation/native";
 import { useTheme } from "styled-components";
 
 import { HighlightCard } from "../../components/HighlightCard";
-import {
-    TransactionCard,
-    TransactionCardProps,
-} from "../../components/TransactionCard";
+
 
 import {
     Container,
@@ -29,6 +26,10 @@ import {
     LoadContainer,
 } from "./styles";
 import { useAuth } from "../../hooks/auth";
+import {
+    TransactionCardProps,
+    TransactionCard,
+} from "../../components/HistoryCard/TransactionCard";
 export interface DataListProps extends TransactionCardProps {
     id: string;
 }
@@ -54,17 +55,17 @@ export function Dashboard() {
     function getLastTransactionDate(
         collection: DataListProps[],
         type: 'positive' | 'negative'
-        ){
-        const collectionFilttered = collection.filter(transaction  => transaction.type === type);
-        
-        if(collectionFilttered.length === 0)
-        return 0;
+    ) {
+        const collectionFilttered = collection.filter(transaction => transaction.type === type);
+
+        if (collectionFilttered.length === 0)
+            return 0;
 
         const lastTransaction = new Date(
-        Math.max.apply(Math, collectionFilttered
-            .map(transaction => new Date(transaction.date).getTime())));
+            Math.max.apply(Math, collectionFilttered
+                .map(transaction => new Date(transaction.date).getTime())));
 
-        return `${lastTransaction.getDate()} de ${lastTransaction.toLocaleString('pt-BR', { month: 'long'})}`;
+        return `${lastTransaction.getDate()} de ${lastTransaction.toLocaleString('pt-BR', { month: 'long' })}`;
     }
 
     async function loadTransactions() {
@@ -122,8 +123,8 @@ export function Dashboard() {
                     style: "currency",
                     currency: "BRL",
                 }),
-                lastTransaction: lastTransactionEntries === 0 
-                    ? 'Não há transações' 
+                lastTransaction: lastTransactionEntries === 0
+                    ? 'Não há transações'
                     : `Ultima entrada: ${lastTransactionEntries}`
             },
             expensives: {
@@ -132,8 +133,8 @@ export function Dashboard() {
                     currency: "BRL",
                 }),
                 lastTransaction: lastTransactionExpensives === 0
-                ? 'Não há transações'
-                : `Ultima saída: ${lastTransactionExpensives}`
+                    ? 'Não há transações'
+                    : `Ultima saída: ${lastTransactionExpensives}`
             },
             total: {
                 amount: total.toLocaleString("pt-BR", {
@@ -143,7 +144,7 @@ export function Dashboard() {
                 lastTransaction: totalInterval
             },
         });
-        
+
         setIsLoading(false);
     }
 
@@ -159,14 +160,14 @@ export function Dashboard() {
 
     return (
         <Container>
-            {isLoading ? 
+            {isLoading ?
                 <LoadContainer>
                     <ActivityIndicator
                         color={theme.colors.primary}
                         size="large"
                     />
                 </LoadContainer>
-             :
+                :
                 <>
                     <Header>
                         <UserWrapper>
